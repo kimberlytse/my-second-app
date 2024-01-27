@@ -6,6 +6,8 @@ import SettingScreen from '../screens/SettingScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 
+import { Ionicons } from "@expo/vector-icons"; 
+
 const Tab = createBottomTabNavigator();
 
 
@@ -40,8 +42,9 @@ const Tabs = () => {
               <View style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                top: 10
+                top: 0
               }}>
+                <Ionicons name="home-outline" size={30} color="grey" /> 
                 <Text
                   style={{
                     color: focused ? 'black' : 'grey', fontSize: 12
@@ -53,9 +56,99 @@ const Tabs = () => {
           }
         }
       />
-      <Tab.Screen name="Settings" component={SettingScreen} />
-      <Tab.Screen name="Details" component={DetailsScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen 
+        name="Settings" 
+        component={SettingScreen} 
+        options={
+          {
+            tabBarIcon: ({ focused }) => (
+              <View style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                top: 0
+              }}>
+                <Ionicons name="settings-outline" size={30} color="grey" /> 
+                <Text
+                  style={{
+                    color: focused ? 'black' : 'grey', fontSize: 12
+                  }}>
+                  SETTINGS
+                </Text>
+              </View>
+            )
+          }
+        }
+      />
+      <Tab.Screen 
+        name="TEST" 
+        component={SettingScreen} 
+        options={
+          {
+            tabBarIcon: ({ focused }) => (
+              <View style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                top: 10
+              }}>
+                
+                <Text
+                  style={{
+                    color: focused ? 'black' : 'grey', fontSize: 12
+                  }}>
+                  TEST
+                </Text>
+              </View>
+            )
+          }
+        }
+      />
+      <Tab.Screen 
+        name="Details" 
+        component={DetailsScreen} 
+        options={
+          {
+            tabBarIcon: ({ focused }) => (
+              <View style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                top: 0
+              }}>
+                <Ionicons name="list-outline" size={30} color="grey" /> 
+                <Text
+                  style={{
+                    color: focused ? 'black' : 'grey', fontSize: 12
+                  }}>
+                  DETAILS
+                </Text>
+              </View>
+            )
+          }
+        }
+      />
+      
+      <Tab.Screen 
+        name="Profile" 
+        component={ProfileScreen} 
+        options={
+          {
+            tabBarIcon: ({ focused }) => (
+              <View style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                top: 0
+              }}>
+                <Ionicons name="person-outline" size={30} color="grey" /> 
+                <Text
+                  style={{
+                    color: focused ? 'black' : 'grey', fontSize: 12
+                  }}>
+                  PROFILE
+                </Text>
+              </View>
+            )
+          }
+        }
+      />
     </Tab.Navigator>
   );
 }
